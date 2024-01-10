@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Documentation</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='style.css'>
+</head>
+
+<body>
+    <!-- #region About-->
+    <div>
+        <h1>About</h1>
+        <h3>Created by: Daniel McErlean</h3>
+        <p>This trivia app utilizes the free Trivia Database API to give users a specified amount of questions in a
+            variety
+            of categories and difficulties. Built with Flutter for a school project.</p>
+    </div>
+    <!-- #endregion -->
+
+    <!-- #region Instructions/Page Uses-->
+    <div>
+        <h2>Instructions / Page Uses</h2>
+        <ul>
+            <li><b>Home Page</b>
+                <ol>
+                    <li>navigate to the Prompt Page</li>
+                    <li>navigate to the Highscore Page</li>
+                    <li>navigate to the Credits Page (here)</li>
+                    <li>quit the game</li>
+                </ol>
+            </li>
+            <li><b>Prompt Page</b>
+                <ol>
+                    <li>Enter username (required)
+                        <ul>
+                            <li>Entering a username already on the Highscore Page will add to that username's score</li>
+                        </ul>
+                    </li>
+                    <li>Enter number of questions (required)
+                        <ul>
+                            <li>Max of 50</li>
+                            <li>Anything other than a number will tell the user to enter only a number</li>
+                            <li>Anything 0 or below, or above 50 will tell the user to enter a number between 1 and 50
+                            </li>
+                        </ul>
+                    </li>
+                    <li>Choose Category</li>
+                    <li>Choose Difficulty</li>
+                    <li>If there are not enough questions in the chosen category and/or difficulty, the app will tell
+                        the user.</li>
+                </ol>
+            </li>
+            <li><b>Game Page</b>
+                <ol>
+                    <li>X amount of questions will be displayed, each with either 4 multiple choice answers, or 2
+                        true/false answers</li>
+                    <li>The Appbar will display the category of each question</li>
+                    <li>The Appbar will change color depending on the difficulty of the question:
+                        <ul>
+                            <li>Green for Easy</li>
+                            <li>Yellow for Medium</li>
+                            <li>Red for Hard</li>
+                        </ul>
+                    </li>
+                    <li>Users can select an answer, then press submit to lock-in that answer.</li>
+                    <li>After submitting, the app will:
+                        <ul>
+                            <li>change the color of the selected answer to red for incorrect</li>
+                            <li>change the color of the selected answer to green for correct</li>
+                            <li>display the correct answer</li>
+                            <li>change the 'submit' button to the 'next' button, which will display the next question
+                            </li>
+                        </ul>
+                    </li>
+                    <li>Pressing the 'next' button will bring the app back to the top of the screen if the next question
+                        is large enough for the app to scroll</li>
+                    <li>If the user presses the back button, a prompt to exit appears warning that progress will be lost
+                        when leaving in the middle of a game.</li>
+                    <li>After each question is answered, the app will:
+                        <ul>
+                            <li>Display a game over screen</li>
+                            <li>Tell the user how many questions were answered correctly</li>
+                            <li>Prompt the user to either play again, or go home</li>
+                        </ul>
+                    </li>
+                </ol>
+            </li>
+            <li><b>Highscore Page</b>
+                <ol>
+                    <li>See each highscore during a session</li>
+                    <li>Currently, the highscore list will reset when the user exits the app.</li>
+                </ol>
+            </li>
+            <li><b>data_provider</b>
+                <ol>
+                    <li>Keeps track of the trivia API response</li>
+                    <li>Keeps track of the highscore list, and sorts it from highest to lowest score</li>
+                </ol>
+            </li>
+        </ul>
+    </div>
+    <!-- #endregion -->
+
+    <!-- #region Process -->
+    <div>
+        <h1>Process</h1>
+        <ol>
+            <li>Started out with an idea for a trivia game</li>
+            <li>Created the pages and routing</li>
+            <li>Set up the prompt page to receive api response</li>
+            <li>Set up game page to display api response</li>
+            <li>Set up data_provider to provide the users and api response to the different pages</li>
+            <li>Styled app with dynamic sizes for different screens, and changed colors and font</li>
+        </ol>
+
+        <h2>Set Backs / Glitches</h2>
+        <ul>
+            <li>Could not get shared_preferences to work properly in data_provider, so users and scores are not saved
+                between sessions.
+            </li>
+            <li>Some answer responses are too long and are aligned to the left side of the selection box. There seems to
+                be no way to always center text inside of toggleButtons</li>
+            <li>There is significant lag during the first round of every game, no matter how many questions. Every round
+                after is rendered smoothly.</li>
+
+        </ul>
+    </div>
+    <!-- #endregion -->
+
+    <hr>
+
+    <!-- #region Sources-->
+    <div>
+        <h1>Sources & References</h1>
+        <ul>
+            <li><a href="https://opentdb.com/">Open Trivia Database API</a></li>
+
+
+            <li><a href="https://www.youtube.com/@flutterdev">Flutter Youtube Channel for various tutorials</a></li>
+            <li><a
+                    href="https://stock.adobe.com/images/vector-realistic-isolated-neon-sign-of-quiz-frame-logo-for-template-decoration-and-covering-on-the-wall-background-concept-of-trivia-night-and-question/256640090">Background
+                    Inspiration</a></li>
+            <li><a href="https://github.com/flutter/flutter/issues/18711#issuecomment-505791677">Structure for scrolling
+                    and keeping the buttons on the bottom of the screen</a>
+            </li>
+            <li><a
+                    href="https://stackoverflow.com/questions/57878887/using-flutter-webview-as-home-and-pressing-back-button-closes-application">Structure
+                    for pressing back button in WebView</a></li>
+            <li><a href="https://stackoverflow.com/questions/51119795/how-to-remove-scroll-glow">Stops glow effect on
+                    scrollable pages</a></li>
+            <li><a
+                    href="https://stackoverflow.com/questions/59477239/textinputaction-textinputaction-next-failing-to-move-user-focus-to-next-element">Fix
+                    for automatically going to next field in Prompt Page</a></li>
+            <li><a href="https://stackoverflow.com/">Various troubleshooting fixes found on stackoverflow</a></li>
+        </ul>
+
+        <h2>Flutter Packages</h2>
+        <ul>
+            <li><a href="https://pub.dev/packages/animated_text_kit">animated_text_kit</a></li>
+            <li><a href="https://pub.dev/packages/google_fonts">google_fonts</a></li>
+            <li><a href="https://pub.dev/packages/html">html</a></li>
+            <li><a href="https://pub.dev/packages/http">http</a></li>
+            <li><a href="https://pub.dev/packages/provider">provider</a></li>
+            <li><a href="https://pub.dev/packages/webview_flutter">webview_flutter</a></li>
+            <li><a href="https://pub.dev/packages/shared_preferences">shared_preferences</a></li>
+        </ul>
+    </div>
+    <!-- #endregion -->
+
+</body>
+
+</html>
